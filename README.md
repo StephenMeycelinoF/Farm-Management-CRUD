@@ -16,7 +16,7 @@ Untuk mulai bekerja dengan proyek ini, ikuti langkah-langkah berikut:
 1.  **Clone Repository**
 
     Pertama, clone repository menggunakan Git:
-    git clone https://github.com/username/repository.git
+    git clone https://github.com/StephenMeycelinoF/Farm-Management-CRUD
     cd repository
     composer install
     cp .env.example .env
