@@ -15,7 +15,7 @@
             success: function (response) {
                 if (response.status === 200) {
                     var animalSelect = $('#create-animal_id');
-                    animalSelect.empty(); // Kosongkan elemen dropdown
+                    animalSelect.empty();
                     $.each(response.animals, function (index, animal) {
                         animalSelect.append($('<option>', {
                             value: animal.id,

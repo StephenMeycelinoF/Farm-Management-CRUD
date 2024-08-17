@@ -38,4 +38,38 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "{{ route('breeds.count') }}",
+            type: 'GET',
+            success: function (response) {
+                if (response.status === 200) {
+                    $('#total-breeds').text(response.totalBreeds);
+                } else {
+                    $('#total-breeds').text('Error fetching data');
+                }
+            },
+            error: function () {
+                $('#total-breeds').text('Error fetching data');
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "{{ route('medicalRecords.count') }}",
+            type: 'GET',
+            success: function (response) {
+                if (response.status === 200) {
+                    $('#total-medicalRecords').text(response.totalRecords);
+                } else {
+                    $('#total-medicalRecords').text('Error fetching data');
+                }
+            },
+            error: function () {
+                $('#total-medicalRecords').text('Error fetching data');
+            }
+        });
+    });
 </script>
