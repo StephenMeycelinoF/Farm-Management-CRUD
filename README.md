@@ -23,5 +23,6 @@ Untuk mulai bekerja dengan proyek ini, ikuti langkah-langkah berikut:
     php artisan key:generate
     php artisan migrate
     php artisan db:seed
+    php artisan serve
 
 
