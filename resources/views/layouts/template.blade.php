@@ -63,12 +63,12 @@
                     <p>Data Pemilik Ternak</p>
                 </a>
             </li>
-            <li class="{{ Route::currentRouteName() == 'breeds.index' ? 'active' : '' }}">
+            <!-- <li class="{{ Route::currentRouteName() == 'breeds.index' ? 'active' : '' }}">
                 <a href="{{ route('breeds.index') }}">
                     <i class="bi bi-egg-fried"></i>
                     <p>Data Pakan Ternak</p>
                 </a>
-            </li>
+            </li> -->
             <li class="{{ Route::currentRouteName() == 'medicalRecords.index' ? 'active' : '' }}">
                 <a href="{{ route('medicalRecords.index') }}">
                     <i class="bi bi-bandaid"></i>

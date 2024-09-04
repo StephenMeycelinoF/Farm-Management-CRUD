@@ -1,4 +1,5 @@
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,22 +7,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="owner-form" method="post">
+                <form id="owner-form" method="post" novalidate>
                     @csrf
                     <div class="row">
                         <div class="col-lg">
-                            <label>Nama</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <label>Nama *</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                            <div class="invalid-feedback">Nama harus diisi.</div>
                         </div>
                         <div class="col-lg">
-                            <label>Alamat</label>
-                            <input type="text" name="address" id="address" class="form-control">
+                            <label>Alamat *</label>
+                            <input type="text" name="address" id="address" class="form-control" required>
+                            <div class="invalid-feedback">Alamat harus diisi.</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Telepon</label>
-                            <input type="text" name="phone" id="phone" class="form-control">
+                            <label>Telepon *</label>
+                            <input type="text" name="phone" id="phone" class="form-control" required>
+                            <div class="invalid-feedback">Telepon harus diisi.</div>
                         </div>
                     </div>
                 </form>
