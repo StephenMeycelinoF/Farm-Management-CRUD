@@ -1,0 +1,9 @@
+/* Gaya untuk input, textarea, dan select ketika aktif */
+input:focus,
+textarea:focus,
+select:focus {
+    background-color: #a0e1f1; /* Background color */
+    border-color: #ff9f00;     /* Border color */
+    outline: none;             /* Menghapus outline default pada browser */
+    box-shadow: 0 0 0 0.2rem rgba(255, 159, 0, 0.25); /* Menambahkan shadow untuk border color */
+}

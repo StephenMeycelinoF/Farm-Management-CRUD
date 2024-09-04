@@ -1,4 +1,5 @@
-<div class="modal fade" id="editMedicalRecordModal" tabindex="-1" role="dialog" aria-labelledby="editMedicalRecordModalLabel" aria-hidden="true">
+<div class="modal fade" id="editMedicalRecordModal" tabindex="-1" role="dialog"
+    aria-labelledby="editMedicalRecordModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,3 +51,18 @@
         </div>
     </div>
 </div>
+
+<style>
+    .form-control:focus {
+        border-color: #ff9f00;
+        background-color: #a0e1f1;
+        box-shadow: 0 0 0 0.2rem rgba(255, 159, 0, 0.25);
+        outline: none;
+        border-radius: 0;
+    }
+
+    .form-control::placeholder {
+        color: rgba(51, 51, 51, 0.5);
+        opacity: 1;
+    }
+</style>
