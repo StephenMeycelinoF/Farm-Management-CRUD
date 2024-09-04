@@ -25,7 +25,7 @@
                         <div class="col-lg">
                             <label>Umur *</label>
                             <input type="text" id="edit-age" name="age" class="form-control" required>
-                            <div class="invalid-feedback">Umur harus diisi.</div>
+                            <div class="invalid-feedback">Umur harus diisi dengan angka.</div>
                         </div>
                     </div>
                     <div class="row">

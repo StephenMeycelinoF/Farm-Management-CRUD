@@ -37,5 +37,5 @@
     .form-control::placeholder {
         color: rgba(51, 51, 51, 0.5);
         opacity: 1;
-    }
+    }   
 </style>

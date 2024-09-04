@@ -25,7 +25,7 @@
                         <div class="col-lg">
                             <label>Telepon *</label>
                             <input type="text" id="edit-phone" name="phone" class="form-control" required>
-                            <div class="invalid-feedback">Telepon harus diisi.</div>
+                            <div class="invalid-feedback">Telepon harus diisi dengan angka.</div>
                         </div>
                     </div>
                 </form>

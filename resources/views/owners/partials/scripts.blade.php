@@ -30,8 +30,8 @@
                 {
                     "data": null,
                     "render": function (data, type, row) {
-                        return '<a href="#" class="btn btn-sm btn-primary edit-btn" data-id="' + data.id + '" data-name="' + data.name + '" data-address="' + data.address + '" data-phone="' + data.phone + '"><i class="bi bi-pencil-fill"></i></a> ' +
-                            '<a href="#" class="btn btn-sm btn-danger delete-btn" data-id="' + data.id + '"><i class="bi bi-trash"></i></a>';
+                        return '<a href="#" class="btn btn-sm text-primary edit-btn" data-id="' + data.id + '" data-name="' + data.name + '" data-address="' + data.address + '" data-phone="' + data.phone + '"><i class="bi bi-pencil-fill"></i></a> ' +
+                            '<a href="#" class="btn btn-sm text-danger delete-btn" data-id="' + data.id + '"><i class="bi bi-trash"></i></a>';
                     }
                 }
             ]
@@ -48,6 +48,26 @@
                 } else {
                     $(this).closest('form').submit();
                 }
+            }
+        });
+
+        document.getElementById('phone').addEventListener('input', function (e) {
+            var value = this.value;
+            if (!/^\d*$/.test(value)) {
+                this.value = value.replace(/[^0-9]/g, '');
+                document.querySelector('#phone').setCustomValidity("Nomor telepon harus berupa angka.");
+            } else {
+                document.querySelector('#phone').setCustomValidity("");
+            }
+        });
+
+        document.getElementById('edit-phone').addEventListener('input', function (e) {
+            var value = this.value;
+            if (!/^\d*$/.test(value)) {
+                this.value = value.replace(/[^0-9]/g, '');
+                document.querySelector('#edit-phone').setCustomValidity("Nomor telepon harus berupa angka.");
+            } else {
+                document.querySelector('#edit-phone').setCustomValidity("");
             }
         });
 

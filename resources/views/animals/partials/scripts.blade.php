@@ -5,6 +5,27 @@
     crossorigin="anonymous"></script>
 
 <script>
+
+    document.getElementById('age').addEventListener('input', function (e) {
+        var value = this.value;
+        if (!/^\d*$/.test(value)) {
+            this.value = value.replace(/[^0-9]/g, '');
+            document.querySelector('#age').setCustomValidity("Umur harus berupa angka.");
+        } else {
+            document.querySelector('#age').setCustomValidity("");
+        }
+    });
+
+    document.getElementById('edit-age').addEventListener('input', function (e) {
+        var value = this.value;
+        if (!/^\d*$/.test(value)) {
+            this.value = value.replace(/[^0-9]/g, '');
+            document.querySelector('#edit-age').setCustomValidity("Umur harus berupa angka.");
+        } else {
+            document.querySelector('#edit-age').setCustomValidity("");
+        }
+    });
+
     $(document).ready(function () {
         var table = $('#myTable').DataTable({
             "ajax": {
@@ -73,6 +94,15 @@
         $('#animal-form').on('submit', function (e) {
             e.preventDefault();
             let form = $(this);
+
+            let ageInput = $('#age');
+            if (ageInput.val() < 0) {
+                ageInput.addClass('is-invalid');
+                ageInput.next('.invalid-feedback').text('Umur tidak boleh kurang dari 0.');
+                return;
+            } else {
+                ageInput.removeClass('is-invalid');
+            }
 
             if (form[0].checkValidity() === false) {
                 e.stopPropagation();

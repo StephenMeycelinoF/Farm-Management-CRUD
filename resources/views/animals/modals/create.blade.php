@@ -26,9 +26,9 @@
                     <div class="row">
                         <div class="col-lg">
                             <label for="age">Umur *</label>
-                            <input type="text" name="age" id="age" class="form-control"
-                                placeholder="Umur Hewan Ternak" required>
-                            <div class="invalid-feedback">Umur harus diisi.</div>
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Umur Hewan Ternak"
+                                required>
+                            <div class="invalid-feedback">Umur harus diisi dengan angka.</div>
                         </div>
                     </div>
                     <div class="row">
