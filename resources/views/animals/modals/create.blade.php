@@ -1,5 +1,4 @@
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,28 +6,40 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="animal-form" method="post">
+                <form id="animal-form" method="post" class="needs-validation" novalidate>
                     @csrf
                     <div class="row">
                         <div class="col-lg">
-                            <label>Nama</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <label for="name">Nama *</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Nama hewan harus diisi.
+                            </div>
                         </div>
                         <div class="col-lg">
-                            <label>Spesies</label>
-                            <input type="text" name="species" id="species" class="form-control">
+                            <label for="species">Spesies *</label>
+                            <input type="text" name="species" id="species" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Spesies harus diisi.
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Umur</label>
-                            <input type="text" name="age" id="age" class="form-control">
+                            <label for="age">Umur *</label>
+                            <input type="text" name="age" id="age" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Umur harus diisi.
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Deskripsi</label>
-                            <input type="text" name="description" id="description" class="form-control">
+                            <label for="description">Deskripsi *</label>
+                            <input type="text" name="description" id="description" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Deskripsi harus diisi.
+                            </div>
                         </div>
                     </div>
                 </form>

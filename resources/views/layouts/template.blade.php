@@ -24,108 +24,110 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"">
+
     @yield('styles')
 </head>
 
 <body class="">
-    <div class="wrapper ">
-        <div class="sidebar" data-color="white" data-active-color="danger">
-            <div class="logo">
-                <a href="{{ route('layouts.dashboard') }}" class="simple-text logo-mini">
-                    <div class="logo-image-small">
-                        <img src="../assets/img/logo-small.png">
-                    </div>
-                </a>
-                <a href="{{ route('layouts.dashboard') }}" class="simple-text logo-normal">
-                    ADMIN
-                </a>
+    <div class=" wrapper ">
+        <div class=" sidebar" data-color="white" data-active-color="danger">
+    <div class="logo">
+        <a href="{{ route('layouts.dashboard') }}" class="simple-text logo-mini">
+            <div class="logo-image-small">
+                <img src="../assets/img/logo-small.png">
             </div>
-            <!-- Menu List -->
-            <div class="sidebar-wrapper">
-                <ul class="nav overflow-hidden">
-                    <li class="{{ Route::currentRouteName() == 'layouts.dashboard' ? 'active' : '' }}">
-                        <a href="{{ route('layouts.dashboard') }}">
-                            <i class="nc-icon nc-bank"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="{{ Route::currentRouteName() == 'animals.index' ? 'active' : '' }}">
-                        <a href="{{ route('animals.index') }}">
-                            <i class="nc-icon nc-tile-56"></i>
-                            <p>Data Hewan</p>
-                        </a>
-                    </li>
-                    <li class="{{ Route::currentRouteName() == 'owners.index' ? 'active' : '' }}">
-                        <a href="{{ route('owners.index') }}">
-                            <i class="nc-icon nc-single-02"></i>
-                            <p>Data Pemilik Ternak</p>
-                        </a>
-                    </li>
-                    <li class="{{ Route::currentRouteName() == 'breeds.index' ? 'active' : '' }}">
-                        <a href="{{ route('breeds.index') }}">
-                            <i class="bi bi-egg-fried"></i>
-                            <p>Data Pakan Ternak</p>
-                        </a>
-                    </li>
-                    <li class="{{ Route::currentRouteName() == 'medicalRecords.index' ? 'active' : '' }}">
-                        <a href="{{ route('medicalRecords.index') }}">
-                            <i class="bi bi-bandaid"></i>
-                            <p>Data Rekam Medis</p>
-                        </a>
-                    </li>
-                </ul>
+        </a>
+        <a href="{{ route('layouts.dashboard') }}" class="simple-text logo-normal">
+            ADMIN
+        </a>
+    </div>
+    <!-- Menu List -->
+    <div class="sidebar-wrapper">
+        <ul class="nav overflow-hidden">
+            <li class="{{ Route::currentRouteName() == 'layouts.dashboard' ? 'active' : '' }}">
+                <a href="{{ route('layouts.dashboard') }}">
+                    <i class="nc-icon nc-bank"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="{{ Route::currentRouteName() == 'animals.index' ? 'active' : '' }}">
+                <a href="{{ route('animals.index') }}">
+                    <i class="nc-icon nc-tile-56"></i>
+                    <p>Data Hewan</p>
+                </a>
+            </li>
+            <li class="{{ Route::currentRouteName() == 'owners.index' ? 'active' : '' }}">
+                <a href="{{ route('owners.index') }}">
+                    <i class="nc-icon nc-single-02"></i>
+                    <p>Data Pemilik Ternak</p>
+                </a>
+            </li>
+            <li class="{{ Route::currentRouteName() == 'breeds.index' ? 'active' : '' }}">
+                <a href="{{ route('breeds.index') }}">
+                    <i class="bi bi-egg-fried"></i>
+                    <p>Data Pakan Ternak</p>
+                </a>
+            </li>
+            <li class="{{ Route::currentRouteName() == 'medicalRecords.index' ? 'active' : '' }}">
+                <a href="{{ route('medicalRecords.index') }}">
+                    <i class="bi bi-bandaid"></i>
+                    <p>Data Rekam Medis</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="javascript:;">Sistem Peternakan</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
             </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="javascript:;">Sistem Peternakan</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                    </button>
-                </div>
-            </nav>
-            <!-- End Navbar -->
+        </nav>
+        <!-- End Navbar -->
 
-            <!-- Content -->
-            @yield("content")
-            <!-- End Content -->
+        <!-- Content -->
+        @yield("content")
+        <!-- End Content -->
 
-            <footer class="footer footer-black  footer-white ">
-                <div class="container-fluid">
-                    <div class="row">
-                        <nav class="footer-nav">
-                            <ul>
-                                <li>>Creative Tim</a></li>
-                                <li>Blog</li>
-                                <li>Licenses</li>
-                            </ul>
-                        </nav>
-                        <div class="credits ml-auto">
-                            <span class="copyright">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                            </span>
-                        </div>
+        <footer class="footer footer-black  footer-white ">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="footer-nav">
+                        <ul>
+                            <li>Creative Tim</a></li>
+                            <li>Blog</li>
+                            <li>Licenses</li>
+                        </ul>
+                    </nav>
+                    <div class="credits ml-auto">
+                        <span class="copyright">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                        </span>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+    </div>
     </div>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
@@ -149,9 +151,17 @@
         });
     </script>
 
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            document.querySelector('.sidebar').classList.toggle('toggled');
+        });
+
+    </script>
+
+
     @yield('page-scripts') 
 
     @yield('scripts')
-</body>
+    </body>
 
 </html>

@@ -13,7 +13,9 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="fa fa-users text-warning" aria-hidden="true"></i>
+                                <div class="badge bg-success rounded-circle ">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">
@@ -41,7 +43,9 @@
                     <div class="row">
                         <div class="col-5 col-md-4">
                             <div class="icon-big text-center icon-warning">
-                                <i class="bi bi-tencent-qq text-primary" aria-hidden="true"></i>
+                                <div class="badge bg-success rounded-circle ">
+                                    <i class="bi bi-tencent-qq " aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-7 col-md-8">

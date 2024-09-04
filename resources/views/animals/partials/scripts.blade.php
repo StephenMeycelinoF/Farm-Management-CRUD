@@ -53,58 +53,106 @@
             $('#editModal').modal('show');
         });
 
-        $('#animal-form').submit(function (e) {
-            e.preventDefault();
-            const animaldata = new FormData(this);
+        // Pindah ke input berikutnya saat Enter ditekan
+        $('#animal-form input').on('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                let inputs = $(this).closest('form').find(':input:visible');
+                let idx = inputs.index(this);
 
-            $.ajax({
-                url: '{{ route('animals.store') }}',
-                method: 'post',
-                data: animaldata,
-                cache: false,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    if (response.status == 200) {
-                        alert("Saved successfully");
-                        $('#animal-form')[0].reset();
-                        $('#createModal').modal('hide');
-                        $('#myTable').DataTable().ajax.reload();
-                    }
+                if (idx === inputs.length - 1) {
+                    // Jika di input terakhir, fokus tetap pada tombol Simpan
+                    inputs[idx].blur();
+                } else {
+                    inputs[idx + 1].focus();
                 }
-            });
+            }
         });
 
+        // Validasi dan simpan data
+        $('#animal-form').on('submit', function (e) {
+            e.preventDefault();
+            let form = $(this);
+
+            if (form[0].checkValidity() === false) {
+                e.stopPropagation();
+            } else {
+                const animaldata = new FormData(this);
+
+                $.ajax({
+                    url: '{{ route('animals.store') }}',
+                    method: 'post',
+                    data: animaldata,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response.status == 200) {
+                            alert("Saved successfully");
+                            $('#animal-form')[0].reset();
+                            $('#createModal').modal('hide');
+                            $('#myTable').DataTable().ajax.reload();
+                        }
+                    }
+                });
+            }
+            form.addClass('was-validated');
+        });
+
+        // Navigasi input dengan Enter dan validasi ketika disubmit
+        $('#edit-form input').on('keydown', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                var inputs = $(this).closest('form').find(':input:visible');
+                var nextInput = inputs.eq(inputs.index(this) + 1);
+                if (nextInput.length) {
+                    nextInput.focus();
+                } else {
+                    $(this).closest('form').submit();
+                }
+            }
+        });
+
+        // Validasi dan pengiriman form
         $('#edit-form').submit(function (e) {
             e.preventDefault();
-            const animaldata = new FormData(this);
+            var form = $(this)[0];
 
-            $.ajax({
-                url: '{{ route('animals.update') }}',
-                method: 'POST',
-                data: animaldata,
-                cache: false,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    if (response.status === 200) {
-                        alert(response.message);
-                        $('#edit-form')[0].reset();
-                        $('#editModal').modal('hide');
-                        $('#myTable').DataTable().ajax.reload();
-                    } else {
-                        alert(response.message);
+            // Jika form valid, lakukan submit
+            if (form.checkValidity()) {
+                const animaldata = new FormData(this);
+
+                $.ajax({
+                    url: '{{ route('animals.update') }}',
+                    method: 'POST',
+                    data: animaldata,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (response) {
+                        if (response.status === 200) {
+                            alert(response.message);
+                            $('#edit-form')[0].reset();
+                            $('#editModal').modal('hide');
+                            $('#myTable').DataTable().ajax.reload();
+                        } else {
+                            alert(response.message);
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                e.stopPropagation();
+            }
+
+            $(this).addClass('was-validated');
         });
 
         $(document).on('click', '.delete-btn', function () {
