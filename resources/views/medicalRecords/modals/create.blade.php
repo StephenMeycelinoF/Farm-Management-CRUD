@@ -8,37 +8,36 @@
             <div class="modal-body">
                 <form id="medical-record-form" method="post">
                     @csrf
-                    <!-- Form fields go here -->
                     <div class="row">
                         <div class="col-lg">
-                            <label>Hewan</label>
-                            <select name="animal_id" id="create-animal_id" class="form-control">
+                            <label>Hewan <span class="text-danger">*</span></label>
+                            <select name="animal_id" id="create-animal_id" class="form-control" required>
                                 <!-- Populate with animals from database -->
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Tanggal</label>
-                            <input type="date" name="date" id="date" class="form-control">
+                            <label>Tanggal <span class="text-danger">*</span></label>
+                            <input type="date" name="date" id="date" class="form-control" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Deskripsi</label>
-                            <input type="text" name="description" id="description" class="form-control">
+                            <label>Deskripsi <span class="text-danger">*</span></label>
+                            <input type="text" name="description" id="description" class="form-control" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Perawatan</label>
-                            <textarea name="treatment" id="treatment" class="form-control"></textarea>
+                            <label>Perawatan <span class="text-danger">*</span></label>
+                            <textarea name="treatment" id="treatment" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg">
-                            <label>Dokter</label>
-                            <input type="text" name="veterinarian" id="veterinarian" class="form-control">
+                            <label>Dokter <span class="text-danger">*</span></label>
+                            <input type="text" name="veterinarian" id="veterinarian" class="form-control" required>
                         </div>
                     </div>
                 </form>

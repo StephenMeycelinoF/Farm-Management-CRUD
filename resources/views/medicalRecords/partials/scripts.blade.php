@@ -7,6 +7,18 @@
 <script>
     $(document).ready(function () {
 
+        // Menangani perpindahan input dengan tombol Enter
+        $('form').on('keydown', 'input, textarea, select', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                var focusableElements = $(this).closest('form').find('input, textarea, select').filter(':visible');
+                var index = focusableElements.index(this);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements.eq(index + 1).focus();
+                }
+            }
+        });
+
         // Mengisi dropdown hewan saat halaman dimuat
         $.ajax({
             url: '{{ route('animals.getall') }}',
@@ -102,7 +114,6 @@
             $('#editMedicalRecordModal').modal('show');
         });
 
-
         $('#medical-record-form').submit(function (e) {
             e.preventDefault();
             const medicalRecordData = new FormData(this);
@@ -167,6 +178,7 @@
                 }
             });
         });
+
 
         $('#myTable tbody').on('click', '.delete-btn', function () {
             var id = $(this).data('id');
